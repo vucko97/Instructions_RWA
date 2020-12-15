@@ -11,23 +11,29 @@
 </head>
 
 <body class="bg-gray-200">
-    <nav class="p-6 bg-white flex justify-between mb-6">
+    <nav class="px-6 py-2 bg-white flex justify-between mb-6">
         <ul class="flex items-center">
             <li class="p-3">
-                <a href="">Home</a>
+                <a href="{{ route('home') }}">Home</a>
             </li>
             <li class="p-3">
-                <a href="">Professors</a>
+                <a href="{{ route('skills') }}">Skills</a>
+            </li>
+            <li class="p-3">
+                <a href="{{ route('roles') }}">Roles</a>
             </li>
             <li class="p-3">
                 <a href="">Appointments</a>
+            </li>
+            <li class="p-3">
+                <a href="{{ route('dashboard') }}">Dashboard</a>
             </li>
         </ul>
 
         @auth
             <ul class="flex items-center">
                 <li class="p-3">
-                    <a href="">My profile</a>
+                    <a href="">{{ auth()->user()->name }}</a>
                 </li>
                 <li class="p-3">
                     <form action="{{ route('logout') }}" method="POST">
