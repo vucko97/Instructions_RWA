@@ -19,11 +19,26 @@
             </div>
 
             @if ($roles->count())
-                @foreach ($roles as $role)
-                    <div>
-                        {{ $role->id }} - {{ $role->name }}
-                    </div>
-                @endforeach
+                <table style="width: 100%;" class="text-left mt-5">
+                    <tr class="border">
+                        <th class="p-2">ID</th>
+                        <th class="p-2">Name</th>
+                        <th class="p-2">Actions</th>
+                    </tr>
+                    @foreach ($roles as $role)
+                        <tr class="border">
+                            <td class="p-2">{{ $role->id }}</td>
+                            <td class="p-2">{{ $role->name }}</td>
+                            <td class="p-2">
+                                <form action="/roles/{{ $role->id }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="bg-red-500 text-white p-2 rounded">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
             @else
                 There are no roles
             @endif

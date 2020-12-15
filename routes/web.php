@@ -27,3 +27,4 @@ Route::post('/skills', [SkillController::class, 'store']);
 
 Route::get('/roles', [RoleController::class, 'index'])->name('roles');
 Route::post('/roles', [RoleController::class, 'store']);
+Route::delete('/roles/{id}', [RoleController::class, 'destroy']);
