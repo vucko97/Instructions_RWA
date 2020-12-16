@@ -10,7 +10,7 @@
                     @csrf
 
                     <div>
-                        <label for="name">Name:</label>
+                        <label for="name">Name</label>
                         <input class="border" type="text" name="name" id="name">
 
                         <button type="submit" class="bg-green-500 text-white p-2 rounded">Submit</button>

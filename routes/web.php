@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -10,7 +11,6 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 // HOME
-
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -18,12 +18,14 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 // ROUTES
-
 Route::get('/users', [UserController::class, 'index'])->name('users');
 Route::get('/users/{id}', [UserController::class, 'show']);
 Route::get('/users/{id}/edit', [UserController::class, 'edit']);
 Route::put('/users/{id}', [UserController::class, 'update']);
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
+
+Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointments');
+Route::post('/appointments', [AppointmentController::class, 'store']);
 
 Route::get('/skills', [SkillController::class, 'index'])->name('skills');
 Route::post('/skills', [SkillController::class, 'store']);
@@ -34,7 +36,6 @@ Route::post('/roles', [RoleController::class, 'store']);
 Route::delete('/roles/{id}', [RoleController::class, 'destroy']);
 
 // AUTH
-
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 
