@@ -38,6 +38,6 @@ class RegisterController extends Controller
 
         Auth::attempt($request->only('email', 'password'));
 
-        return redirect('/professors');
+        return redirect()->route('home');
     }
 }

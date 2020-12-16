@@ -17,6 +17,9 @@
                 <a href="{{ route('home') }}">Home</a>
             </li>
             <li class="p-3">
+                <a href="{{ route('users') }}">Users</a>
+            </li>
+            <li class="p-3">
                 <a href="{{ route('skills') }}">Skills</a>
             </li>
             <li class="p-3">
@@ -33,7 +36,7 @@
         @auth
             <ul class="flex items-center">
                 <li class="p-3">
-                    <a href="">{{ auth()->user()->name }}</a>
+                    <a href="/users/{{auth()->user()->id}}">{{ auth()->user()->name }}</a>
                 </li>
                 <li class="p-3">
                     <form action="{{ route('logout') }}" method="POST">
