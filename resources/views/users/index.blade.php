@@ -16,14 +16,14 @@
                         @endforeach
                     </select>
 
-                    <label for="order">Order</label>
+                    <label for="order">Order by price</label>
                     <select class="border p-2 rounded bg-gray-200 mr-2" name="order" id="order">
                         <option value="asc">ascening</option>
                         <option value="desc">descending</option>
                     </select>
 
                     <button type="submit" class="bg-blue-200 rounded p-2 mr-2">Filter</button>
-                    <button type="submit" class="bg-blue-500 text-white rounded p-2"><a href="{{ route('users') }}">Remove
+                    <button type="submit" class="bg-blue-500 text-white rounded p-2 my-2"><a href="{{ route('users') }}">Remove
                             filters</a></button>
             </form>
         </div>

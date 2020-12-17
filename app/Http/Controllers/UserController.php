@@ -52,7 +52,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return back();
+        return redirect('/users/' . $request->id);
     }
 
     public function destroy($id)

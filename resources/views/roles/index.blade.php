@@ -3,7 +3,9 @@
 @section('content')
     <div class="flex justify-center">
         <div class="w-8/12 bg-white p-6 rounded-lg">
-            Roles
+            <div class="text-xl font-bold mb-4">
+                Roles
+            </div>
 
             <div class="my-4">
                 <form action="{{ route('roles') }}" method="POST">
@@ -11,7 +13,7 @@
 
                     <div>
                         <label for="name">Name:</label>
-                        <input class="border" type="text" name="name" id="name">
+                        <input class="border rounded p-1" placeholder="Name" type="text" name="name" id="name">
 
                         <button type="submit" class="bg-green-500 text-white p-2 rounded">Submit</button>
                     </div>

@@ -3,7 +3,9 @@
 @section('content')
     <div class="flex justify-center">
         <div class="w-8/12 bg-white p-6 rounded-lg">
-            Appointments
+            <div class="text-xl font-bold mb-4">
+                Appointments
+            </div>
 
             <div class="my-4">
                 <form action="{{ route('appointments') }}" method="POST">
@@ -23,12 +25,12 @@
                     <div class="my-2">
                         <label for="description">Description:</label>
                         <textarea name="description" id="description" cols="10" rows="4"
-                            class="bg-gray-100 border-2 w-full p-4 rounded-lg" placeholder="Description"></textarea>
+                            class="bg-gray-100 border w-full p-4 rounded" placeholder="Description"></textarea>
                     </div>
 
                     <div class="my-2">
                         <label for="contact">Contact:</label>
-                        <input class="border rounded p-1" type="text" name="contact" id="contact">
+                        <input class="border rounded p-1" placeholder="Contact" type="text" name="contact" id="contact">
                     </div>
 
                     <div class="mt-4 text-right">
@@ -51,6 +53,9 @@
                             <div>Date: <b>{{ $appointment->date }}</b></div>
                             <div>Description: <b>{{ $appointment->description }}</b></div>
                             <div>Contact: <b>{{ $appointment->contact }}</b></div>
+                            @if (Auth::user()->role_id == 1)
+                                <div>Owner: <b>{{ $appointment->user->email }}</b></div>
+                            @endif
 
                             <div class="text-right">
                                 <form action="/appointments/{{ $appointment->id }}" method="POST">
