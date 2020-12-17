@@ -11,6 +11,8 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    protected $with = ['skill'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -45,7 +47,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function appointments() {
+    public function appointments()
+    {
         return $this->hasMany(Appointment::class);
+    }
+
+    public function skill()
+    {
+        return $this->belongsTo(Skill::class);
     }
 }

@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class SkillController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['admin']);
+    }
+
     public function index()
     {
         $skills = Skill::get();

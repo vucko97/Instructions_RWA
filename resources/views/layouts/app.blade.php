@@ -17,20 +17,21 @@
                 <a href="{{ route('home') }}">Home</a>
             </li>
             <li class="p-3">
-                <a href="{{ route('users') }}">Users</a>
+                <a href="{{ route('users') }}">Instructors</a>
             </li>
-            <li class="p-3">
-                <a href="{{ route('skills') }}">Skills</a>
-            </li>
-            <li class="p-3">
-                <a href="{{ route('roles') }}">Roles</a>
-            </li>
-            <li class="p-3">
-                <a href="{{ route('appointments') }}">Appointments</a>
-            </li>
-            <li class="p-3">
-                <a href="{{ route('dashboard') }}">Dashboard</a>
-            </li>
+            @auth
+                <li class="p-3">
+                    <a href="{{ route('appointments') }}">Appointments</a>
+                </li>
+            @endauth
+            @if (Auth::user() && Auth::user()->role_id == 1)
+                <li class="p-3">
+                    <a href="{{ route('skills') }}">Skills</a>
+                </li>
+                <li class="p-3">
+                    <a href="{{ route('roles') }}">Roles</a>
+                </li>
+            @endif
         </ul>
 
         @auth

@@ -10,41 +10,55 @@
                     @csrf
 
                     <div class="my-2">
-                        <label for="time">Time</label>
-                        <input class="border" type="time" name="time" id="time">
+                        <label for="time">Time:</label>
+                        <input class="border rounded p-1" type="time" name="time" id="time">
                     </div>
 
                     <div class="my-2">
-                        <label for="date">Date</label>
-                        <input class="border" type="date" name="date" id="date">
+                        <label for="date">Date:</label>
+                        <input class="border rounded p-1" min="{{ now()->toDateString('Y-m-d') }}" type="date" name="date"
+                            id="date">
                     </div>
 
                     <div class="my-2">
-                        <label for="description">Description</label>
+                        <label for="description">Description:</label>
                         <textarea name="description" id="description" cols="10" rows="4"
                             class="bg-gray-100 border-2 w-full p-4 rounded-lg" placeholder="Description"></textarea>
                     </div>
 
                     <div class="my-2">
-                        <label for="contact">Contact</label>
-                        <input class="border" type="text" name="contact" id="contact">
+                        <label for="contact">Contact:</label>
+                        <input class="border rounded p-1" type="text" name="contact" id="contact">
                     </div>
 
-                    <div class="mt-4">
-                        <button type="submit" class="bg-green-500 text-white p-2 rounded">Submit</button>
+                    <div class="mt-4 text-right">
+                        <button type="submit" class="bg-blue-500 text-white p-2 rounded">Submit</button>
                     </div>
                 </form>
+            </div>
+
+            <hr class="my-2">
+
+            <div class="text-xl">
+                Your appointments
             </div>
 
             @if ($appointments->count())
                 <div class="grid grid-cols-1 lg:grid-cols-3 my-5">
                     @foreach ($appointments as $appointment)
-                        <div class="p-4 m-2 border">
-                            <div>{{ $appointment->time }}</div>
-                            <div>{{ $appointment->date }}</div>
-                            <div>{{ $appointment->description }}</div>
-                            <div>{{ $appointment->contact }}</div>
-                            <div>{{ $appointment->user_id }}</div>
+                        <div class="p-4 m-2 border rounded bg-gray-200">
+                            <div>Time: <b>{{ $appointment->time }}</b></div>
+                            <div>Date: <b>{{ $appointment->date }}</b></div>
+                            <div>Description: <b>{{ $appointment->description }}</b></div>
+                            <div>Contact: <b>{{ $appointment->contact }}</b></div>
+
+                            <div class="text-right">
+                                <form action="/appointments/{{ $appointment->id }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="bg-red-500 text-white p-2 rounded">Delete</button>
+                                </form>
+                            </div>
                         </div>
                     @endforeach
                 </div>

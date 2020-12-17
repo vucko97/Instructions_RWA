@@ -18,11 +18,21 @@
                         class="bg-gray-100 border-2 rounded p-1">
                 </div>
 
+
                 <div class="my-2">
                     <label for="description">Description</label>
                     <textarea name="description" id="description" cols="10" rows="4"
                         class="bg-gray-100 border-2 w-full p-4 rounded-lg"
                         placeholder="Description">{{ $user->description }}</textarea>
+                </div>
+
+                <div class="my-2">
+                    <label for="skill">Skill</label>
+                    <select class="border" name="skill_id" id="skill">
+                        @foreach ($skills as $skill)
+                            <option value="{{ $skill->id }}">{{ $skill->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="text-right">

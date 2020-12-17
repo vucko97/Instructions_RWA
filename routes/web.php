@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
-
 // ROUTES
 Route::get('/users', [UserController::class, 'index'])->name('users');
 Route::get('/users/{id}', [UserController::class, 'show']);
@@ -26,6 +24,7 @@ Route::delete('/users/{id}', [UserController::class, 'destroy']);
 
 Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointments');
 Route::post('/appointments', [AppointmentController::class, 'store']);
+Route::delete('/appointments/{id}', [AppointmentController::class, 'destroy']);
 
 Route::get('/skills', [SkillController::class, 'index'])->name('skills');
 Route::post('/skills', [SkillController::class, 'store']);

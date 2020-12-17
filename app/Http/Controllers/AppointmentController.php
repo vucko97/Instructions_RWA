@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AppointmentController extends Controller
 {
     public function index()
     {
-        $appointments = Appointment::get();
+        if (Auth::user()->role_id == 1) {
+            $appointments = Appointment::get();
+        } else {
+            $appointments = Appointment::where('user_id', '=', Auth::id())->get();
+        }
 
         return view('appointments.index', ['appointments' => $appointments]);
     }
@@ -26,6 +31,15 @@ class AppointmentController extends Controller
         // Appointment::create($request->all());
 
         $request->user()->appointments()->create($request->all());
+
+        return back();
+    }
+
+    public function destroy($id)
+    {
+        $appointment = Appointment::findOrFail($id);
+
+        $appointment->delete();
 
         return back();
     }
