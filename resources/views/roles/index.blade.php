@@ -12,6 +12,8 @@
                     @csrf
 
                     <div>
+                        <label for="id">ID</label>
+                        <input class="border rounded p-1" placeholder="ID" type="text" name="id" id="id">
                         <label for="name">Name:</label>
                         <input class="border rounded p-1" placeholder="Name" type="text" name="name" id="name">
 

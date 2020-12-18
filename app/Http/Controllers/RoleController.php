@@ -22,6 +22,7 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'id' => 'required',
             'name' => 'required',
         ]);
 
@@ -32,10 +33,10 @@ class RoleController extends Controller
 
     public function destroy($id)
     {
-        $lecture = Role::findOrFail($id);
+        $role = Role::findOrFail($id);
 
-        $lecture->delete();
+        $role->delete();
 
-        return back();
+        return redirect()->route('roles');
     }
 }

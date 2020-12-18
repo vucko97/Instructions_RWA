@@ -10,8 +10,10 @@
             <div class="my-4">
                 <form action="{{ route('skills') }}" method="POST">
                     @csrf
-
+                    
                     <div>
+                        <label for="id">ID</label>
+                        <input class="border rounded p-1" placeholder="ID" type="text" name="id" id="id">
                         <label for="name">Name</label>
                         <input class="border rounded p-1" placeholder="Name" type="text" name="name" id="name">
 
@@ -32,7 +34,7 @@
                             <td class="p-2">{{ $skill->id }}</td>
                             <td class="p-2">{{ $skill->name }}</td>
                             <td class="p-2">
-                                <form action="/roles/{{ $skill->id }}" method="POST">
+                                <form action="/skills/{{ $skill->id }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="bg-red-500 text-white p-2 rounded">Delete</button>

@@ -22,11 +22,21 @@ class SkillController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'id' => 'required',
             'name' => 'required',
         ]);
 
         Skill::create($request->all());
 
         return back();
+    }
+
+    public function destroy($id)
+    {
+        $skill = Skill::findOrFail($id);
+
+        $skill->delete();
+
+        return redirect()->route('skills');
     }
 }
