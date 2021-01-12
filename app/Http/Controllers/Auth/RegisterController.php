@@ -39,6 +39,6 @@ class RegisterController extends Controller
 
         Auth::attempt($request->only('email', 'password'));
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('message', 'Welcome, please set your price and skill.');
     }
 }
