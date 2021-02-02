@@ -42,4 +42,4 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
-//URL::forceRootUrl('http://studenti.sum.ba/projekti/fsre_rwa/2020/gX');    
+//URL::forceRootUrl('http://studenti.sum.ba/projekti/fsre_rwa/2020/g15');    
