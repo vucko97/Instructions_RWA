@@ -42,7 +42,7 @@
                         @endif
                         <div>Price: <b class="text-blue-500">{{ $user->price }} $/h</b></div>
                         <div class="text-right">
-                            <a class="underline text-blue-600" href="/users/{{ $user->id }}">Details</a>
+                            <a class="underline text-blue-600" href="{{ route('users.show', $user->id) }}">Details</a>
                         </div>
                     </div>
                 @endforeach
