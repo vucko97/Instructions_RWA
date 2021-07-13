@@ -37,7 +37,7 @@
         @auth
             <ul class="flex items-center">
                 <li class="p-3">
-                    <a href="/users/{{ auth()->user()->id }}">{{ auth()->user()->name }}</a>
+                    <a href="{{ route('users.show', auth()->user()->id) }}</a>
                 </li>
                 <li class="p-3">
                     <form action="{{ route('logout') }}" method="POST">
