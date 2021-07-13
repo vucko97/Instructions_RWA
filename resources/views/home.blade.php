@@ -12,7 +12,7 @@
                             {{ session('message') }}
                         </div>
 
-                        <button class="p-2 my-2 bg-blue-200 rounded"><a href="/users/{{ Auth::user()->id }}/edit">Click here to
+                        <button class="p-2 my-2 bg-blue-200 rounded"><a href="{{ route('users.edit', Auth::user()->id) }}">Click here to
                                 set
                                 price and skill</a></button>
 
