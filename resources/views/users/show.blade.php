@@ -17,9 +17,9 @@
 
                 @if (Auth::user() && (Auth::user()->id == $user->id || Auth::user()->role_id == 1))
                     <div class="flex justify-end mt-4">
-                        <a class="bg-yellow-500 text-white p-2 rounded mr-3" href="/users/{{ $user->id }}/edit">Edit</a>
+                        <a class="bg-yellow-500 text-white p-2 rounded mr-3" href="{{ route('users.edit', $user->id) }}">Edit</a>
 
-                        <form action="/users/{{ $user->id }}" method="POST">
+                        <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="bg-red-500 text-white p-2 rounded">Delete</button>
