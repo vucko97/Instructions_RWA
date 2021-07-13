@@ -58,7 +58,7 @@
                             @endif
 
                             <div class="text-right">
-                                <form action="/appointments/{{ $appointment->id }}" method="POST">
+                                <form action="{{ route('appointments.destroy', $appointment->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="bg-red-500 text-white p-2 rounded">Delete</button>
