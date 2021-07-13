@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 // ROUTES
 Route::get('/users', [UserController::class, 'index'])->name('users');
-Route::get('/users/{id}', [UserController::class, 'show']);
+Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
 Route::get('/users/{id}/edit', [UserController::class, 'edit']);
 Route::put('/users/{id}', [UserController::class, 'update']);
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
