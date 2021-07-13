@@ -18,21 +18,21 @@ Route::get('/', function () {
 // ROUTES
 Route::get('/users', [UserController::class, 'index'])->name('users');
 Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
-Route::get('/users/{id}/edit', [UserController::class, 'edit']);
-Route::put('/users/{id}', [UserController::class, 'update']);
-Route::delete('/users/{id}', [UserController::class, 'destroy']);
+Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
 Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointments');
-Route::post('/appointments', [AppointmentController::class, 'store']);
-Route::delete('/appointments/{id}', [AppointmentController::class, 'destroy']);
+Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');;
+Route::delete('/appointments/{id}', [AppointmentController::class, 'destroy'])->name('appointments.destroy');;
 
 Route::get('/skills', [SkillController::class, 'index'])->name('skills');
-Route::post('/skills', [SkillController::class, 'store']);
-Route::delete('/skills/{id}', [SkillController::class, 'destroy']);
+Route::post('/skills', [SkillController::class, 'store'])->name('skills.store');
+Route::delete('/skills/{id}', [SkillController::class, 'destroy'])->name('skills.destroy');
 
 Route::get('/roles', [RoleController::class, 'index'])->name('roles');
-Route::post('/roles', [RoleController::class, 'store']);
-Route::delete('/roles/{id}', [RoleController::class, 'destroy']);
+Route::post('/roles', [RoleController::class, 'store'])->name('roles.store');
+Route::delete('/roles/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
 
 // AUTH
 Route::get('/login', [LoginController::class, 'index'])->name('login');
