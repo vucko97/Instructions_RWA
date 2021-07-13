@@ -34,7 +34,7 @@
                             <td class="p-2">{{ $role->id }}</td>
                             <td class="p-2">{{ $role->name }}</td>
                             <td class="p-2">
-                                <form action="/roles/{{ $role->id }}" method="POST">
+                                <form action="{{ route('roles.destroy', $role->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="bg-red-500 text-white p-2 rounded">Delete</button>
