@@ -5,7 +5,7 @@
         <div class="w-8/12 bg-white p-6 rounded-lg">
             <div class="text-lg font-bold mb-4">Edit user</div>
 
-            <form action="/users/{{ $user->id }}" method="POST">
+            <form action="{{ route('users.update', $user->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <input type="hidden" name="id" value="{{ $user->id }}">
